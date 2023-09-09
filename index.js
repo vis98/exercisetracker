@@ -77,7 +77,7 @@ app.post("/api/users/:_id/exercises",async (req,res)=>{
         _id:user.id,
         description:exercise.description,
         duration:exercise.duration,
-        date:new Date(exercise.date).toDateString()
+        date:exercise.date.toDateString()
       })
     }
   }
@@ -125,7 +125,7 @@ app.post("/api/users/:_id/exercises",async (req,res)=>{
       const log=exercises.map(e=>({
         description:e.description,
         duration: e.duration,
-        date:  e.date.toDateString
+        date:  e.date.toDateString()
       }))
       res.json({
         username:user.user,
