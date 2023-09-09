@@ -72,10 +72,15 @@ app.post("/api/users/:_id/exercises",async (req,res)=>{
       console.log("Exercise obj",exerciseObj)
       const exercise=await exerciseObj.save()
       console.log("Exercise obj saved",exercise)
-      user.description=exercise.description;
+/*       user.description=exercise.description;
       user.duration=exercise.duration;
       user.date=exercise.date.toDateString()
-      res.send(user)
+ */      res.send({
+  _id:user.id,
+  username:user.username,
+  description:exercise.description,
+  date:exercise.date.toDateString()
+ })
     }
   }
   catch(err){
